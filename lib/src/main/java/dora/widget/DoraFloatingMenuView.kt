@@ -23,8 +23,8 @@ class DoraFloatingMenuView @JvmOverloads constructor(
     private var touchSlop = 10
     private var arcColor = Color.BLACK
     private var centerColor = Color.BLACK
-    private var textColor = Color.WHITE
-    private var textSize = 40f
+    private var menuTextColor = Color.WHITE
+    private var menuTextSize = 40f
 
     private val arcPaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
@@ -61,9 +61,9 @@ class DoraFloatingMenuView @JvmOverloads constructor(
             color = centerColor
         }
         textPaint.apply {
-            color = textColor
+            color = menuTextColor
             textAlign = Paint.Align.CENTER
-            textSize = textSize
+            textSize = menuTextSize
         }
     }
 
@@ -84,8 +84,8 @@ class DoraFloatingMenuView @JvmOverloads constructor(
         val ta = context.obtainStyledAttributes(attrs, R.styleable.DoraFloatingMenuView)
         arcColor = ta.getColor(R.styleable.DoraFloatingMenuView_dview_fm_arcColor, arcColor)
         centerColor = ta.getColor(R.styleable.DoraFloatingMenuView_dview_fm_centerColor, centerColor)
-        textColor = ta.getColor(R.styleable.DoraFloatingMenuView_dview_fm_textColor, textColor)
-        textSize = ta.getDimension(R.styleable.DoraFloatingMenuView_dview_fm_textSize, textSize)
+        menuTextColor = ta.getColor(R.styleable.DoraFloatingMenuView_dview_fm_menuTextColor, menuTextColor)
+        menuTextSize = ta.getDimension(R.styleable.DoraFloatingMenuView_dview_fm_menuTextSize, menuTextSize)
         ta.recycle()
     }
 

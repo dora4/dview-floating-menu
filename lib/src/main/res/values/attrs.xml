@@ -4,7 +4,7 @@
     <declare-styleable name="DoraFloatingMenuView">
         <attr name="dview_fm_arcColor" format="color" />
         <attr name="dview_fm_centerColor" format="color" />
-        <attr name="dview_fm_textColor" format="color" />
-        <attr name="dview_fm_textSize" format="dimension" />
+        <attr name="dview_fm_menuTextColor" format="color" />
+        <attr name="dview_fm_menuTextSize" format="dimension" />
     </declare-styleable>
 </resources>
