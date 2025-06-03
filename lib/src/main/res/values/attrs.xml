@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="DoraFloatingMenuView">
+        <attr name="dview_fm_arcColor" format="color" />
+        <attr name="dview_fm_centerColor" format="color" />
+        <attr name="dview_fm_textColor" format="color" />
+        <attr name="dview_fm_textSize" format="dimension" />
+    </declare-styleable>
+</resources>
