@@ -2,6 +2,9 @@ dview-floating-menu
 ![Release](https://jitpack.io/v/dora4/dview-floating-menu.svg)
 --------------------------------
 
+#### 卡片
+![DORA视图 幻光悬球](https://github.com/user-attachments/assets/632c6536-4fcf-4f13-94ac-eb4eaf7c3faf)
+
 #### Gradle依赖配置
 
 ```groovy
