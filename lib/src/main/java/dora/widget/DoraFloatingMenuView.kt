@@ -38,7 +38,7 @@ class DoraFloatingMenuView @JvmOverloads constructor(
 
     // ------------------ 扇形文字与颜色 ------------------
     private var defaultLabels = arrayOf("A", "B", "C", "D", "E", "F", "G", "H") // 默认文字，从上面开始顺时针排列
-    private var labels = defaultLabels // 当前文字
+    private var labels = defaultLabels.copyOf() // 当前文字，深拷贝，独立数组
     private var defaultArcColor = Color.BLACK
     private var arcColors: Array<Int> = Array(8) { defaultArcColor } // 每个扇形颜色
 
@@ -96,11 +96,13 @@ class DoraFloatingMenuView @JvmOverloads constructor(
         updateArcColor(index, color)
     }
 
+    /** 恢复某个扇形到初始状态 */
     fun clearArc(index: Int) {
         clearArcLabel(index)
         updateArcColor(index, defaultArcColor)
     }
 
+    /** 设置所有扇形默认的背景颜色 */
     fun setDefaultArcColor(color: Int) {
         this.defaultArcColor = color
         this.arcColors = Array(8) { color }
@@ -134,14 +136,15 @@ class DoraFloatingMenuView @JvmOverloads constructor(
     /** 批量设置所有扇形文字 */
     fun setArcLabels(labels: Array<String>) {
         if (labels.size != 8) return
-        this.defaultLabels = labels
-        this.labels = labels
+        // 数组的赋值只能通过下标或深拷贝
+        this.defaultLabels = labels.copyOf()
+        this.labels = labels.copyOf()
         invalidate()
     }
 
     /** 恢复所有扇形文字为默认值 */
     fun resetArcLabels() {
-        labels = defaultLabels
+        labels = defaultLabels.copyOf()
         invalidate()
     }
 
