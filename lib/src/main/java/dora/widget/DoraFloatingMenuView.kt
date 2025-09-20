@@ -39,7 +39,8 @@ class DoraFloatingMenuView @JvmOverloads constructor(
     // ------------------ 扇形文字与颜色 ------------------
     private var defaultLabels = arrayOf("A", "B", "C", "D", "E", "F", "G", "H") // 默认文字，从上面开始顺时针排列
     private var labels = defaultLabels // 当前文字
-    private var arcColors: Array<Int> = Array(8) { Color.BLACK } // 每个扇形颜色
+    private var defaultArcColor = Color.BLACK
+    private var arcColors: Array<Int> = Array(8) { defaultArcColor } // 每个扇形颜色
 
     // ------------------ 中心圆 ------------------
     private var centerLabel = "Start" // 中心圆文字
@@ -93,6 +94,17 @@ class DoraFloatingMenuView @JvmOverloads constructor(
     fun updateArc(index: Int, label: String, color: Int) {
         updateArcLabel(index, label)
         updateArcColor(index, color)
+    }
+
+    fun clearArc(index: Int) {
+        clearArcLabel(index)
+        updateArcColor(index, defaultArcColor)
+    }
+
+    fun setDefaultArcColor(color: Int) {
+        this.defaultArcColor = color
+        this.arcColors = Array(8) { color }
+        invalidate()
     }
 
     /** 设置某个扇形背景颜色 */
