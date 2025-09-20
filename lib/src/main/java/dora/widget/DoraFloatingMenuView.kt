@@ -142,9 +142,21 @@ class DoraFloatingMenuView @JvmOverloads constructor(
         invalidate()
     }
 
+    /** 恢复所有扇形文字和背景颜色为默认值 */
+    fun resetArc() {
+        resetArcLabels()
+        resetArcColors()
+    }
+
     /** 恢复所有扇形文字为默认值 */
     fun resetArcLabels() {
         labels = defaultLabels.copyOf()
+        invalidate()
+    }
+
+    /** 恢复所有扇形背景颜色为默认值 */
+    fun resetArcColors() {
+        arcColors = Array(8) { defaultArcColor }
         invalidate()
     }
 
