@@ -17,7 +17,8 @@ class DoraFloatingMenuView @JvmOverloads constructor(
     private var downX = 0f
     private var downY = 0f
     private var arcCircleGap = 10
-    private var labels = arrayOf("A", "B", "C", "D", "E", "F", "G", "H")
+    private var defaultLabels = arrayOf("A", "B", "C", "D", "E", "F", "G", "H")
+    private var labels = defaultLabels
     private var centerLabel = "Start"
     private var isDragging = false
     private var touchSlop = 10
@@ -67,12 +68,37 @@ class DoraFloatingMenuView @JvmOverloads constructor(
         }
     }
 
-    fun setLabels(labels: Array<String>) {
+    /**
+     * 设置默认的文字。
+     */
+    fun initLabels(labels: Array<String>) {
         if (labels.size != 8) {
             return
         }
+        this.defaultLabels = labels
         this.labels = labels
         invalidate()
+    }
+
+    fun resetLabels() {
+        labels = defaultLabels
+        invalidate()
+    }
+
+    // 清空某个 index 的 label
+    fun clearLabel(index: Int) {
+        if (index in labels.indices) {
+            labels[index] = ""
+            invalidate()
+        }
+    }
+
+    // 更新某个 index 的 label
+    fun updateLabel(index: Int, label: String) {
+        if (index in labels.indices) {
+            labels[index] = label
+            invalidate()
+        }
     }
 
     fun setCenterLabel(label: String) {
