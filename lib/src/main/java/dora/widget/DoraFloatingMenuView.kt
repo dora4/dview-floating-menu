@@ -156,7 +156,9 @@ class DoraFloatingMenuView @JvmOverloads constructor(
 
     /** 恢复所有扇形背景颜色为默认值 */
     fun resetArcColors() {
-        arcColors = Array(8) { defaultArcColor }
+        for (i in arcColors.indices) {
+            arcColors[i] = defaultArcColor
+        }
         invalidate()
     }
 
@@ -171,6 +173,7 @@ class DoraFloatingMenuView @JvmOverloads constructor(
     /** 设置中心圆填充颜色 */
     fun setCenterColor(color: Int) {
         centerColor = color
+        arcPaint.color = color
         invalidate()
     }
 
